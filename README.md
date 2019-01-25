@@ -5,7 +5,7 @@ go-airplay
 [![Build Status](https://travis-ci.org/gongo/go-airplay.svg?branch=master)](https://travis-ci.org/gongo/go-airplay)
 [![Coverage Status](https://coveralls.io/repos/gongo/go-airplay/badge.png?branch=master)](https://coveralls.io/r/gongo/go-airplay?branch=master)
 
-Go bindings for AirPlay client
+Go bindings for AirPlay client. Fork from gongo/go-airplay. For discovery a network interface can be provided to the discovery service.
 
 ## Usage
 
