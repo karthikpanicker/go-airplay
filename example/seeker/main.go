@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/gongo/go-airplay"
+	"github.com/karthikpanicker/go-airplay"
 )
 
 var opts struct {
@@ -29,6 +29,6 @@ func init() {
 }
 
 func main() {
-	client, _ := airplay.NewClient()
+	client, _ := airplay.NewClient(&airplay.ClientParam{})
 	client.Scrub(opts.position)
 }

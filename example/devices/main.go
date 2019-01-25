@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/gongo/go-airplay"
+	"github.com/karthikpanicker/go-airplay"
 	"github.com/olekukonko/tablewriter"
 )
 
@@ -23,7 +23,7 @@ func main() {
 `
 	extra := ""
 
-	for _, device := range airplay.Devices() {
+	for _, device := range airplay.Devices(nil) {
 		table.Append([]string{
 			device.Name,
 			device.Addr,
