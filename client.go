@@ -57,7 +57,7 @@ type ClientParam struct {
 
 // FirstClient return the AirPlay Client that has the first found AirPlay device in LAN
 func FirstClient() (*Client, error) {
-	device := FirstDevice()
+	device := FirstDevice(nil)
 	if device.Name == "" {
 		return nil, errors.New("AirPlay devices not found")
 	}

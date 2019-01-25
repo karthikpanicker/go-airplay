@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-
 	"github.com/karthikpanicker/go-airplay"
 	"github.com/olekukonko/tablewriter"
 )
