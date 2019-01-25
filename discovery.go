@@ -45,8 +45,8 @@ type queryParam struct {
 	maxCount int
 }
 
-func newDiscovery() (*discovery, error) {
-	mconn, err := net.ListenMulticastUDP("udp4", nil, mdnsUDPAddr)
+func newDiscovery(p *net.Interface) (*discovery, error) {
+	mconn, err := net.ListenMulticastUDP("udp4", p, mdnsUDPAddr)
 	if err != nil {
 		return nil, err
 	}
@@ -65,8 +65,8 @@ func newDiscovery() (*discovery, error) {
 	return d, nil
 }
 
-func searchEntry(params *queryParam) []*entry {
-	d, _ := newDiscovery()
+func searchEntry(params *queryParam,p *net.Interface) []*entry {
+	d, _ := newDiscovery(p)
 	defer d.close()
 
 	if params.timeout == 0 {

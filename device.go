@@ -1,5 +1,7 @@
 package airplay
 
+import "net"
+
 // A Device is an AirPlay Device.
 type Device struct {
 	Name  string
@@ -18,10 +20,10 @@ type DeviceExtra struct {
 }
 
 // Devices returns all AirPlay devices in LAN.
-func Devices() []Device {
+func Devices(nwInterface *net.Interface) []Device {
 	devices := []Device{}
 
-	for _, entry := range searchEntry(&queryParam{}) {
+	for _, entry := range searchEntry(&queryParam{},nwInterface) {
 		devices = append(
 			devices,
 			entryToDevice(entry),
@@ -32,10 +34,9 @@ func Devices() []Device {
 }
 
 // FirstDevice return the first found AirPlay device in LAN.
-func FirstDevice() Device {
+func FirstDevice(nwInterface *net.Interface) Device {
 	params := &queryParam{maxCount: 1}
-
-	for _, entry := range searchEntry(params) {
+	for _, entry := range searchEntry(params,nwInterface) {
 		return entryToDevice(entry)
 	}
 
